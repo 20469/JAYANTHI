@@ -1,0 +1,32 @@
+class Organization implements cloneable
+{
+      public Organization(String code,string name, String address){
+          organizationCode = code;
+          organizationName = name;
+          organizationAddress = address;
+       }
+       Public void printdetails() {
+               System.out.println("Code:"+
+organizationCode +",Name:"+
+organizationName + "'Address:"+
+organizationAddress);
+}
+
+       public Organization clone() throws
+cloneNotSupportException{
+         return (Organization
+super.clone();
+public static void main(String[] args)
+{
+         Organization org1 =new
+Organization("001", "ABC" , 123
+Main St");
+        Organization org2=
+org1.clone();
+          org1.printDetails(); 
+            org2.printDetails();
+
+  
+          
+
+        
