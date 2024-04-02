@@ -35,39 +35,4 @@ public class Main {
         }
     }
 }
-class Parent {
-    public void display() {
-        System.out.println("Parent's display method");
-    }
 
-    public void show(String message) {
-        System.out.println("Parent's show method: " + message);
-    }
-}
-
-class Child extends Parent {
-    @Override
-    public void display() {
-        System.out.println("Child's overridden display method");
-    }
-
-    // Method overloading
-    public void show(int number) {
-        System.out.println("Child's overloaded show method: " + number);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Parent parent = new Parent();
-        Child child = new Child();
-
-        // Method overriding
-        parent.display();
-        child.display();
-
-        // Method overloading
-        parent.show("Hello");
-        child.show(123);
-    }
-}
