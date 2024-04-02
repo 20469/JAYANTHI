@@ -1,0 +1,73 @@
+import java.io.*;
+class Product implements Serializable {
+    private int id;
+    private String name;
+    private String category;
+    private double price;
+
+    public Product(int id, String name, String category, double price) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+
+    public void printDetails() {
+        System.out.println("Product ID: " + id);
+        System.out.println("Product Name: " + name);
+        System.out.println("Product Category: " + category);
+        System.out.println("Product Price: $" + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileInputStream fileIn = new FileInputStream("product.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Product product = (Product) in.readObject();
+            in.close();
+            fileIn.close();
+            System.out.println("Deserialized Product:");
+            product.printDetails();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+class Parent {
+    public void display() {
+        System.out.println("Parent's display method");
+    }
+
+    public void show(String message) {
+        System.out.println("Parent's show method: " + message);
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void display() {
+        System.out.println("Child's overridden display method");
+    }
+
+    // Method overloading
+    public void show(int number) {
+        System.out.println("Child's overloaded show method: " + number);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        Child child = new Child();
+
+        // Method overriding
+        parent.display();
+        child.display();
+
+        // Method overloading
+        parent.show("Hello");
+        child.show(123);
+    }
+}
